@@ -1,0 +1,39 @@
+@import "../../stylesheet/mixin.scss";
+@import "../../stylesheet/variable.scss";
+
+.navbar {
+    background-color: $black-color;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    
+    &-section {
+        @include flexBetween;
+
+        h1{
+            color: $white;
+            font-size: 1.5rem;
+        }
+    }
+
+    &-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    &-menu {
+        @include flexAlignCenter;
+
+        ul {
+            @include flex;
+
+            li {
+                a {
+                    padding: 1rem;
+                    color: $white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

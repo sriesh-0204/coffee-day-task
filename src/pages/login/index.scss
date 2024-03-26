@@ -1,0 +1,56 @@
+@import '../../stylesheet/variable.scss';
+@import '../../stylesheet//mixin.scss';
+
+.login {
+    background: $login-background;
+    height: 100vh;
+    @include flexCenter;
+
+    &-container {
+        width: calc(100% - 34%);
+        background-color: $white;
+        height: calc(100vh - 12vh);
+        border-radius: 0.5rem;
+        @include flexCenter;
+    }
+
+    &-wrap {
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+
+        @media only screen and (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+
+    &-user-image {
+        width: 35%;
+
+        @media only screen and (max-width: 768px) {
+            margin: 0 auto;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &-form {
+        width: 45%;
+
+        @media only screen and (max-width: 768px) {
+            width: 100%;
+        }
+    }
+
+    &-signup {
+        color: $blue-color;
+        margin-top: 0.5rem;
+        text-align: end;
+    }
+
+    .loader {
+        width: 10%;
+    }
+}

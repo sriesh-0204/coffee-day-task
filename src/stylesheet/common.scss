@@ -1,0 +1,25 @@
+@import '../stylesheet/variable.scss';
+
+.success{
+    background-color: $green-color;
+    color: $white;
+    text-align: center;
+    padding: 0.6rem;
+    border-radius: 1rem;
+}
+
+.error{
+    color: $red-color;
+}
+
+.font-lg{
+    font-size: 3.75rem;
+}
+
+.font-md{
+    font-size: 2.125rem;
+}
+
+.font-xs{
+    font-size: 1.5rem;
+}
