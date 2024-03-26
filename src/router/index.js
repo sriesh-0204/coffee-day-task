@@ -4,6 +4,7 @@ import Login from "../pages/login";
 import Dashboard from "../pages/dashboard";
 import SignUp from "../pages/signup";
 import ProtectedRoute from "./protectedRoute";
+import Cart from "../pages/cart";
 
 const RouteList = () => {
   return (
@@ -18,6 +19,10 @@ const RouteList = () => {
           <Route
             path="/signup"
             element={<ProtectedRoute element={<SignUp/>} />}
+          />
+           <Route
+            path="/cart"
+            element={<Cart/>}
           />
           <Route path="/*" element={<Navigate to="/login" />} />
         </Routes>

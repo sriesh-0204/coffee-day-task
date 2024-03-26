@@ -1,0 +1,50 @@
+@import '../../stylesheet/mixin.scss';
+@import '../../stylesheet/variable.scss';
+
+
+.product {
+   background-color: $light-gray;
+   height: 100%;
+
+   &-container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 8rem 0 2rem;
+      display: flex;
+      flex-wrap: wrap;
+   }
+
+   &-list {
+      background-color: $light-gray;
+      width: 30%;
+      margin: 0 1rem 1rem;
+   }
+
+   &-image {
+      @include flexCenter;
+
+      img {
+         width: 100%;
+      }
+   }
+
+   &-details {
+      padding: 2rem;
+      background-color: $light-gray-01;
+
+      h4 {
+         margin: 0;
+      }
+
+      p {
+         margin: 0.5rem 0;
+      }
+   }
+
+   &-button {
+      background-color: $black-color;
+      color: $white;
+      padding: 0.6rem;
+      margin: 1rem 0 0;
+   }
+}

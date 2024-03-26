@@ -15,7 +15,7 @@ function NavBar() {
           <div className='navbar-menu'>
             <ul>
               <li>
-                <Link to='/contact'>{Menu.CART}</Link>
+                <Link to='/cart'>{Menu.CART}</Link>
               </li>
             </ul>
           </div>

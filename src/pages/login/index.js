@@ -15,7 +15,7 @@ import Loader from "../../html-components/loader";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [messge, setMessage] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
   const [loader, setLoader] = useState(false);
   const auth = getAuth();
   const navigate = useNavigate();
@@ -26,12 +26,15 @@ const Login = () => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        console.log(userCredential,'userCredential');
         if (userCredential?.user?.accessToken) {
-          setMessage(true);
+          setSuccessMessage(true);
           setTimeout(() => {
             navigate("/dashboard");
             setLoader(false)
           }, 3000);
+        } else{
+          setLoader(false)
         }
       })
       .catch((error) => {
@@ -47,7 +50,7 @@ const Login = () => {
             <img src={Images.LogoUserImage} />
           </div>
           <div className="login-form">
-            {messge && <div className="success">Success</div>}
+            {successMessage && <div className="success">Success</div>}
             <h1>{loginPageText.LOGIN}</h1>
             <div className="login-form-validate">
               <form onSubmit={signIn}>

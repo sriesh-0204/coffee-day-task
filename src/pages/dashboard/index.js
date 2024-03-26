@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import './index.scss'
 import NavBar from '../../component/navBarMenu';
+import Products from '../products/products';
 
 const Dashboard = () => {
 
@@ -10,6 +11,7 @@ const Dashboard = () => {
         <div className='home-navbar'>
           <NavBar />
         </div>
+          <Products />
       </div>
     </div>
   )
