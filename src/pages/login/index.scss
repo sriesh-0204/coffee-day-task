@@ -26,6 +26,7 @@
 
     &-user-image {
         width: 35%;
+        @include flexCenter;
 
         @media only screen and (max-width: 768px) {
             margin: 0 auto;

@@ -14,6 +14,7 @@ const ProductsProvider = ({ children }) => {
     if (isAvailable) {
       const product = myCartItems.find((item) => item.id === id);
       product.count += 1;
+      console.log(product,'product');
     } else {
       const newProduct = { ...product, count: 1 };
       myCartItems.push(newProduct);
@@ -25,6 +26,7 @@ const ProductsProvider = ({ children }) => {
     const myCartItems = [...cartItems];
     const product = myCartItems.find((item) => item.id === id);
     product.count -= 1;
+    console.log(product,'product');
     // if (product.count !== 0) {
     //   product.count -= 1;
     // } else {

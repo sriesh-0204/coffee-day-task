@@ -23,5 +23,10 @@
     justify-content: center;
 }
 
+@mixin flexJustifyEnd{
+    display: flex;
+    justify-content: End;
+}
+
 
 

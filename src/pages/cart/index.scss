@@ -1,0 +1,48 @@
+@import '../../stylesheet/mixin.scss';
+@import '../../stylesheet/variable.scss';
+
+.cart {
+    background-color: $light-gray;
+    height: 100vh;
+
+    &-invoice-btn{
+        background-color: $btn-color;
+        padding: 0.8rem;
+        color: $white;
+        border-radius: 8px;
+        border: unset;
+    }
+
+    &-container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 8rem 0 2rem;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &-table {
+        border: 1px solid $table-border-color;
+        width: 100%;
+
+        th, td{
+            border-bottom: 1px solid $table-border-color;
+            border-right: 1px solid $table-border-color;
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            width: 120px;
+        }
+
+        button {
+            border: 1px solid $black-color;
+            background-color: $table-border-color;
+            padding: 8px 12px;
+            margin-left: 1rem;
+        }
+        
+        
+    }
+}

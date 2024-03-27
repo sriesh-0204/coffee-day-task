@@ -7,6 +7,19 @@
     position: fixed;
     z-index: 1;
     top: 0;
+
+    svg.cart-icon {
+        font-size: 24px;
+    }
+
+    span {
+        padding: 0px 5px;
+        background-color: $red-color;
+        border-radius: 50%;
+        position: relative;
+        top: -1rem;
+        left: -0.5rem;
+    }
     
     &-section {
         @include flexBetween;
