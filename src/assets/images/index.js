@@ -7,4 +7,5 @@ export const Images = {
     coffeeImage1: require('./coffee-1.jpg'),
     coffeeImage2: require('./coffee-2.jpg'),
     coffeeImage3: require('./coffee-3.jpg'),
+    NoCartData : require('./no-cart-data.webp')
 }

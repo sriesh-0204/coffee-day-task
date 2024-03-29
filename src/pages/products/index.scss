@@ -12,12 +12,21 @@
       padding: 8rem 0 2rem;
       display: flex;
       flex-wrap: wrap;
+
+      @media only screen and (max-width: 768px) {
+         width: 90%;
+      }
    }
 
    &-list {
       background-color: $light-gray;
       width: 30%;
       margin: 0 1rem 1rem;
+
+
+      @media only screen and (max-width: 768px) {
+         width: 100%;
+      }
    }
 
    &-image {
@@ -44,7 +53,8 @@
    &-button {
       background-color: $black-color;
       color: $white;
-      padding: 0.6rem;
+      padding: 0.5rem;
       margin: 1rem 0 0;
+      cursor: pointer;
    }
 }

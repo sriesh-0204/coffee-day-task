@@ -4,13 +4,11 @@ import { format } from 'date-fns';
 import { ProductsContext } from "../../component/productContext";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
-import Products from "../products/products";
 
-const Invoice = () => {
+const Invoice = (props) => {
+    const {closeIcon} = props;
     const {
         cartItems,
-        addToCart,
-        removeFromCart,
         deleteItemFromCart
     } = useContext(ProductsContext);
     const currentDate = new Date();
@@ -42,7 +40,7 @@ const Invoice = () => {
                     </h4>
                 </div>
                 <div className="close-icon">
-                <IoMdClose />
+                <IoMdClose onClick={closeIcon} />
                 </div>
             </div>
             <div className="invoice-title">

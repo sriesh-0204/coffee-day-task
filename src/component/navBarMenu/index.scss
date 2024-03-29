@@ -8,8 +8,9 @@
     z-index: 1;
     top: 0;
 
-    svg.cart-icon {
-        font-size: 24px;
+    svg {
+        fill: $white;
+        font-size: 22px;
     }
 
     span {

@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { ProductsContext } from "../../component/productContext";
 import NavBar from '../../component/navBarMenu';
-import Table from "../../html-components/table";
 import './index.scss'
 import Invoice from "../invoice";
+import { Images } from "../../assets/images";
 
 const Cart = () => {
   const {
@@ -25,7 +25,9 @@ const Cart = () => {
       </div>
       <div className="cart">
         <div className="cart-container">
-          <table className="cart-table">
+          {cartItems.length > 0 ? (
+            <>
+             <table className="cart-table">
             <thead>
               <tr>
                 <th>Image</th>
@@ -67,8 +69,14 @@ const Cart = () => {
             </button>
           </div>
           {
-            invoice && <Invoice  />
+            invoice && <Invoice closeIcon ={openInvoice}  />
           }
+            </>
+          ) : (
+            <div className="cart-no-data">
+              <img src={Images.NoCartData} />
+            </div>
+          )}
         </div>
       </div>
     </div>

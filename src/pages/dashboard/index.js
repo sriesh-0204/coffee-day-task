@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './index.scss'
 import NavBar from '../../component/navBarMenu';
 import Products from '../products/products';

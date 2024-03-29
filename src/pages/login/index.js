@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
 import { Images } from "../../assets/images";
 import { loginPageText } from "../../data/loginConstant";
 import Input from "../../html-components/Input";
 import PrimaryButton from "../../html-components/primaryButton";
-import { auth } from "../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import "../../stylesheet/common.scss";
@@ -19,26 +18,25 @@ const Login = () => {
   const [loader, setLoader] = useState(false);
   const auth = getAuth();
   const navigate = useNavigate();
-  console.log(auth.currentUser, "akvdj");
 
   const signIn = (e) => {
     setLoader(true)
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential,'userCredential');
-        if (userCredential?.user?.accessToken) {
+        localStorage.setItem("accessToken", JSON.stringify(userCredential?.user?.accessToken));
+        const token = localStorage.getItem("accessToken")
+        if (token) {
           setSuccessMessage(true);
           setTimeout(() => {
             navigate("/dashboard");
             setLoader(false)
           }, 3000);
         } else{
-          setLoader(false)
+          setLoader(false);
         }
       })
       .catch((error) => {
-        console.log(error, "error");
       });
   };
 

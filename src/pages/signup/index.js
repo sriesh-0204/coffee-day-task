@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Images } from "../../assets/images";
 import { loginPageText } from "../../data/loginConstant";
 import Input from "../../html-components/Input";
@@ -25,10 +25,8 @@ const SignUp = () => {
                 navigate('/login')
             }, 5000)
         }
-        console.log(userCredential, "userCredential");
       })
       .catch((error) => {
-        console.log(error, "error");
       });
   };
 
