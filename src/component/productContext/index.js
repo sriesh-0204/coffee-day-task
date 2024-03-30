@@ -16,7 +16,7 @@ const ProductsProvider = ({ children }) => {
       product.count += 1;
     } else {
       const newProduct = { ...product, count: 1 };
-      myCartItems.push(newProduct);
+            myCartItems.push(newProduct);
     }
     setCartItems([...myCartItems]);
   };

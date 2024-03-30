@@ -9,6 +9,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { getAuth } from "firebase/auth";
 import "../../stylesheet/common.scss";
 import { IdConstant } from "../../data/appConstant";
+import { auth } from "../../firebase";
 import Loader from "../../html-components/loader";
 
 const Login = () => {

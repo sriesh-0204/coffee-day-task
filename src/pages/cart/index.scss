@@ -3,15 +3,16 @@
 
 .cart {
     background-color: $light-gray;
-    height: 100vh;
+    height: 100%;
 
     &-invoice-btn{
-        background-color: $btn-color;
+        background-color: $black-color;
         padding: 0.8rem;
         color: $white;
         border-radius: 8px;
         border: unset;
         cursor: pointer;
+        margin: 1rem 0;
     }
 
     &-container {

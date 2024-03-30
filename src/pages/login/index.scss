@@ -49,10 +49,15 @@
         }
     }
 
+    button{
+        cursor: pointer;
+    }
+
     &-signup {
         color: $blue-color;
         margin-top: 0.5rem;
         text-align: end;
+        cursor: pointer;
     }
 
     .loader {

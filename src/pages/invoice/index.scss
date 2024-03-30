@@ -1,17 +1,21 @@
 @import '../../stylesheet/mixin.scss';
 @import '../../stylesheet/variable.scss';
 
-.invoice{
+.invoice {
     background-color: $white;
     width: 40%;
-    height: 60vh;
+    height: 80vh;
     overflow-y: overlay;
     z-index: 1;
     position: absolute;
-    padding: 2.5rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 0.5rem;
+
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
 
     .close-icon {
         position: absolute;
@@ -20,33 +24,61 @@
         cursor: pointer;
     }
 
-    &-head{
+    &-head {
         @include flexBetween;
         border-bottom: 1px solid $table-border-color;
+        padding: 1.5rem;
+        background-color: $black-color;
+        color: $white;
+
+        h4 {
+            margin: 0.5rem 0;
+        }
     }
 
-    &-title{
+    &-body {
+        padding: 1.5rem;
+    }
+
+    &-title {
         text-align: center;
     }
-    &-name{
+
+    &-name {
         @include flexBetween;
     }
 
-    &-total-value{
+    &-total-value {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         margin: 2rem 0;
 
-        h4 , p {
+        h4,
+        p {
             margin-top: 0;
             margin-bottom: 0.5rem;
         }
     }
 
-    &-value{
+    &-value {
         width: 50%;
-        @include flexBetween
+        @include flexBetween;
+        border-bottom: 1px solid $table-border-color;
+    }
+
+    &-download-btn{
+        @include flexJustifyEnd;
+        padding: 1.5rem;
+
+        button {
+            background-color: #000;
+            color: #fff;
+            padding: 0.6rem;
+            border-radius: 0.5rem;
+            display: flex;
+            justify-content: flex-end;
+        }
     }
 
 }

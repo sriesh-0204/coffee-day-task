@@ -21,13 +21,13 @@ export const products = [
         image: `${Images.coffeeImage3}`
     },
     {
-        id: 1103,
+        id: 1105,
         name: `${cartItems.BOOST}`,
         price: 25,
         image: `${Images.coffeeImage1}`
     },
     {
-        id: 1103,
+        id: 1106,
         name: `${cartItems.HORLICKS}`,
         price: 25,
         image: `${Images.coffeeImage2}`
