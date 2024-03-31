@@ -11,18 +11,18 @@ const RouteList = () => {
     <div>
       <Router>
         <Routes>
-          <Route path="/login" element={<Login/>} />
-           <Route
+          <Route path="/login" element={<Login />} />
+          <Route
             path="/dashboard"
-            element={<ProtectedRoute element={<Dashboard/>} />}
+            element={<ProtectedRoute element={<Dashboard />} />}
           />
           <Route
             path="/signup"
-            element={<ProtectedRoute element={<SignUp/>} />}
+            element={<ProtectedRoute element={<SignUp />} />}
           />
-           <Route
+          <Route
             path="/cart"
-            element={<Cart/>}
+            element={<ProtectedRoute element={<Cart />} />}
           />
           <Route path="/*" element={<Navigate to="/login" />} />
         </Routes>

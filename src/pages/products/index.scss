@@ -4,7 +4,8 @@
 
 .product {
    background-color: $light-gray;
-   height: 100%;
+   height: 100vh;
+   overflow-y: overlay;
 
    &-container {
       width: 80%;

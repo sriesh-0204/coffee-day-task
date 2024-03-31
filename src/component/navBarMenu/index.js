@@ -22,7 +22,7 @@ function NavBar() {
   
   const removeToken = () => {
     setTimeout(() => {
-      localStorage.removeItem("storedData")
+      localStorage.removeItem("accessToken")
       navigate("/login");
     }, 3000);
   }

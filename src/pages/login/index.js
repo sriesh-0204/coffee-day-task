@@ -16,6 +16,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const [loader, setLoader] = useState(false);
   const auth = getAuth();
   const navigate = useNavigate();
@@ -29,15 +30,23 @@ const Login = () => {
         const token = localStorage.getItem("accessToken")
         if (token) {
           setSuccessMessage(true);
+          setLoader(false)
           setTimeout(() => {
             navigate("/dashboard");
-            setLoader(false)
-          }, 3000);
+          }, 1500);
         } else{
           setLoader(false);
+          setSuccessMessage(true);
         }
       })
       .catch((error) => {
+        if(error.code === "auth/invalid-credential"){
+          setErrorMessage(true)
+          setLoader(false);
+          setTimeout(() => {
+            setErrorMessage(false)
+          }, 1500);
+        }
       });
   };
 
@@ -50,6 +59,7 @@ const Login = () => {
           </div>
           <div className="login-form">
             {successMessage && <div className="success">Success</div>}
+            {errorMessage && <div className="error">Error</div>}
             <h1>{loginPageText.LOGIN}</h1>
             <div className="login-form-validate">
               <form onSubmit={signIn}>

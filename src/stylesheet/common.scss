@@ -9,7 +9,11 @@
 }
 
 .error{
-    color: $red-color;
+    color: $white !important;
+    background-color: $red-color;
+    text-align: center;
+    padding: 0.6rem;
+    border-radius: 1rem;
 }
 
 .font-lg{
