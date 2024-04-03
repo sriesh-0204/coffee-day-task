@@ -19,6 +19,7 @@ const App = () => {
     } = useContext(ProductsContext);
 
     const handleChange = (date) => {
+        const formatDate = format(date, 'yyyy/MM/dd')
         const resultFilter = cartItems.filter(item => item.date === formatDate)
         setDateFilter(resultFilter)
         setStartDate(date);
@@ -26,6 +27,7 @@ const App = () => {
 
     const onFormSubmit = (e) => {
         e.preventDefault();
+        console.log(startDate);
     };
 
     const resetValue = () => {
