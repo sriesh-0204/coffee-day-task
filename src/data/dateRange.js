@@ -7,62 +7,62 @@ export const products = [
         name: `${cartItems.BLACK_COFFEE}`,
         price: 10,
         image: `${Images.coffeeImage1}`,
-        date:'2024/02/10'
+        date:'20-01-1994'
     },
     {
         id: 1102,
         name: `${cartItems.BLACK_TEA}`,
         price: 12,
         image: `${Images.coffeeImage2}`,
-        date:'2024/01/20'
+        date:'01-06-1993'
     },
     {
         id: 1103,
         name: `${cartItems.GINGER_TEA}`,
         price: 20,
         image: `${Images.coffeeImage3}`,
-        date:'2024/08/20'
+        date:'01-03-2000'
     },
     {
         id: 1105,
         name: `${cartItems.BOOST}`,
         price: 25,
         image: `${Images.coffeeImage1}`,
-        date:'2024/07/20'
+        date:'01-09-1993'
     },
     {
         id: 1106,
         name: `${cartItems.HORLICKS}`,
         price: 25,
         image: `${Images.coffeeImage2}`,
-        date:'2024/06/20'
+        date:'01-11-1992'
     },
     {
         id: 1107,
         name: `${cartItems.HORLICKS}`,
         price: 25,
         image: `${Images.coffeeImage2}`,
-        date:'2024/06/20'
+        date:'01-10-20-2'
     },
     {
         id: 1108,
         name: `${cartItems.HORLICKS}`,
         price: 25,
         image: `${Images.coffeeImage2}`,
-        date:'2024/05/20'
+        date:'04-11-1990'
     },
     {
         id: 1109,
         name: `${cartItems.HORLICKS}`,
         price: 25,
         image: `${Images.coffeeImage2}`,
-        date:'2024/11/01'
+        date:'01-11-2024'
     },
     {
         id: 1110,
         name: `${cartItems.HORLICKS}`,
         price: 25,
         image: `${Images.coffeeImage2}`,
-        date:'2023/04/13'
+        date:'09-09-2023'
     }
 ];

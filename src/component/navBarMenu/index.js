@@ -5,6 +5,7 @@ import './index.scss';
 import { ProductsContext } from '../productContext';
 import { FaShoppingCart } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
+import { FaFilter } from "react-icons/fa";
 
 function NavBar() {
   const { cartItems } = useContext(ProductsContext);
@@ -38,6 +39,11 @@ function NavBar() {
           </div>
           <div className='navbar-menu'>
             <ul>
+              <li className='navbar-li'>
+              <Link to='/filter'>
+            <FaFilter className='filter-icon' />
+            </Link>
+                </li>
               <li className='navbar-li'>
                 <Link to='/cart'><FaShoppingCart className='cart-icon' /><span>{totalCartItemsCount(cartItems)}</span></Link>
               </li>

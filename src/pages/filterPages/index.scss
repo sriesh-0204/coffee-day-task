@@ -1,0 +1,19 @@
+@import '../../stylesheet/mixin.scss';
+@import '../../stylesheet/variable.scss';
+
+.form-group {
+    display: flex;
+
+    p {
+        margin-right: 1rem;
+    }
+}
+
+.reset-button {
+    border: 1px solid $black-color;
+    background-color: $black-color;
+    padding: 0px 12px;
+    margin-left: 1rem;
+    height: 2rem;
+    color: $white;
+}
