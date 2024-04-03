@@ -28,14 +28,14 @@ export const products = [
         name: `${cartItems.BOOST}`,
         price: 25,
         image: `${Images.coffeeImage1}`,
-        date:'2024/07/20'
+        date:'2024/08/20'
     },
     {
         id: 1106,
         name: `${cartItems.HORLICKS}`,
         price: 25,
         image: `${Images.coffeeImage2}`,
-        date:'2024/06/20'
+        date:'2024/08/20'
     },
     {
         id: 1107,
@@ -49,7 +49,7 @@ export const products = [
         name: `${cartItems.HORLICKS}`,
         price: 25,
         image: `${Images.coffeeImage2}`,
-        date:'2024/05/20'
+        date:'2024/06/20'
     },
     {
         id: 1109,
@@ -63,6 +63,6 @@ export const products = [
         name: `${cartItems.HORLICKS}`,
         price: 25,
         image: `${Images.coffeeImage2}`,
-        date:'2023/04/13'
+        date:'2024/11/01'
     }
 ];

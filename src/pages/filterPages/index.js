@@ -42,6 +42,9 @@ const App = () => {
             <div className="cart">
                 <div className="cart-container">
                     <form onSubmit={onFormSubmit}>
+                        <p>
+                            Select this date to filter check(Year-month-date): 2024/02/10, 2024/01/20, 2024/08/20, 2024/06/20, 2024/11/01
+                        </p>
                         <div className="form-group">
                             <p>
                                 Date Filter:
@@ -61,75 +64,75 @@ const App = () => {
                     {
                         dateFilter ? (
                             <>
-                              <table className="cart-table">
-                                <thead>
-                                    <tr>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Actions</th>
-                                        <th>Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {dateFilter &&
-                                        dateFilter.map(({ id, name, price, image, count, date }) => {
-                                            if (count !== 0) {
-                                                const total = count * price;
-                                                return (
-                                                    <tr key={id}>
-                                                        <td><img src={image} alt={name} /></td>
-                                                        <td>{name}</td>
-                                                        <td>{price}</td>
-                                                        <td>
-                                                            {date}
-                                                        </td>
-                                                        <td>
-                                                            {total}
-                                                        </td>
-                                                    </tr>
-                                                );
-                                            }
-                                            return null;
-                                        })}
-                                </tbody>
-                            </table>
+                                <table className="cart-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Actions</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {dateFilter &&
+                                            dateFilter.map(({ id, name, price, image, count, date }) => {
+                                                if (count !== 0) {
+                                                    const total = count * price;
+                                                    return (
+                                                        <tr key={id}>
+                                                            <td><img src={image} alt={name} /></td>
+                                                            <td>{name}</td>
+                                                            <td>{price}</td>
+                                                            <td>
+                                                                {date}
+                                                            </td>
+                                                            <td>
+                                                                {total}
+                                                            </td>
+                                                        </tr>
+                                                    );
+                                                }
+                                                return null;
+                                            })}
+                                    </tbody>
+                                </table>
                             </>
                         ) : (
                             <>
-                             <table className="cart-table">
-                                <thead>
-                                    <tr>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Price</th>
-                                        <th>Actions</th>
-                                        <th>Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {cartItems &&
-                                        cartItems.map(({ id, name, price, image, count, date }) => {
-                                            if (count !== 0) {
-                                                const total = count * price;
-                                                return (
-                                                    <tr key={id}>
-                                                        <td><img src={image} alt={name} /></td>
-                                                        <td>{name}</td>
-                                                        <td>{price}</td>
-                                                        <td>
-                                                            {date}
-                                                        </td>
-                                                        <td>
-                                                            {total}
-                                                        </td>
-                                                    </tr>
-                                                );
-                                            }
-                                            return null;
-                                        })}
-                                </tbody>
-                            </table>
+                                <table className="cart-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Price</th>
+                                            <th>Actions</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {cartItems &&
+                                            cartItems.map(({ id, name, price, image, count, date }) => {
+                                                if (count !== 0) {
+                                                    const total = count * price;
+                                                    return (
+                                                        <tr key={id}>
+                                                            <td><img src={image} alt={name} /></td>
+                                                            <td>{name}</td>
+                                                            <td>{price}</td>
+                                                            <td>
+                                                                {date}
+                                                            </td>
+                                                            <td>
+                                                                {total}
+                                                            </td>
+                                                        </tr>
+                                                    );
+                                                }
+                                                return null;
+                                            })}
+                                    </tbody>
+                                </table>
                             </>
                         )
                     }
