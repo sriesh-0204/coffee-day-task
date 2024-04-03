@@ -7,6 +7,7 @@ import { format } from 'date-fns';
 import { ProductsContext } from '../../component/productContext';
 import { useContext } from 'react';
 import './index.scss'
+import { products } from '../../data/constant';
 
 const App = () => {
     const [startDate, setStartDate] = useState(new Date());
@@ -20,7 +21,7 @@ const App = () => {
 
     const handleChange = (date) => {
         const formatDate = format(date, 'yyyy/MM/dd')
-        const resultFilter = cartItems.filter(item => item.date === formatDate)
+        const resultFilter = products.filter(item => item.date === formatDate)
         setDateFilter(resultFilter)
         setStartDate(date);
     };
@@ -111,8 +112,8 @@ const App = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {cartItems &&
-                                            cartItems.map(({ id, name, price, image, count, date }) => {
+                                        {products &&
+                                            products.map(({ id, name, price, image, count, date }) => {
                                                 if (count !== 0) {
                                                     const total = count * price;
                                                     return (
