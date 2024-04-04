@@ -9,21 +9,27 @@ import '../../stylesheet/common.scss'
 import { IdConstant } from "../../data/appConstant";
 
 const SignUp = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [cpassword, setCPassword] = useState("");
   const [messge, setMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
+
   const auth = getAuth();
 
-  const signUp = (e) => {
+  const handleSignup = (e) => {
     e.preventDefault();
+    if (password !== cpassword) {
+      setErrorMessage(true)
+    }
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        if(userCredential?.user?.accessToken){
-            setMessage(true);
-            setTimeout(() => { 
-                navigate('/login')
-            }, 5000)
+        if (userCredential?.user?.accessToken) {
+          setMessage(true);
+          setTimeout(() => {
+            navigate('/login')
+          }, 5000)
         }
       })
       .catch((error) => {
@@ -38,30 +44,51 @@ const SignUp = () => {
             <img src={Images.LogoUserImage} />
           </div>
           <div className="login-form">
-            <h1>{loginPageText.SIGNUP}</h1>
+            {errorMessage && <div className="error">Something went wrong</div>}
+            {messge && <div className="error">Sign up success</div>}
+            <h2>{loginPageText.SIGNUP}</h2>
             <div className="login-form-validate">
-              <form onSubmit={signUp}>
+              <form onSubmit={handleSignup}>
                 <Input
                   value={email}
                   type="text"
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setErrorMessage(false)
+                    setEmail(e.target.value)
+                  }}
                   placeholder="Enter Name"
                   name="email"
                 />
                 <Input
                   value={password}
-                  type="text"
-                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                  onChange={(e) => {
+                    setErrorMessage(false)
+                    setPassword(e.target.value)
+                  }}
                   placeholder="Enter Password"
                   name="password"
                 />
+                <Input
+                  value={cpassword}
+                  type="password"
+                  onChange={(e) => {
+                    setErrorMessage(false)
+                    setCPassword(e.target.value)
+                  }}
+                  placeholder="Confirm Password"
+                  name="cpassword"
+                />
                 <PrimaryButton label={IdConstant.SUBMIT} type="submit" />
                 {
-                    messge && <div className="success">
+                  messge && <div className="success">
                     {IdConstant.SUCCESS}
-                    </div>
+                  </div>
                 }
               </form>
+              <div onClick={() => navigate("/login")} className="login-signup">
+                <a>{loginPageText.LOGIN} </a>
+              </div>
             </div>
           </div>
         </div>

@@ -33,7 +33,7 @@ const Login = () => {
           setLoader(false)
           setTimeout(() => {
             navigate("/dashboard");
-          }, 1500);
+          }, 500);
         } else{
           setLoader(false);
           setSuccessMessage(true);
@@ -45,7 +45,7 @@ const Login = () => {
           setLoader(false);
           setTimeout(() => {
             setErrorMessage(false)
-          }, 1500);
+          }, 500);
         }
       });
   };
@@ -60,7 +60,7 @@ const Login = () => {
           <div className="login-form">
             {successMessage && <div className="success">Success</div>}
             {errorMessage && <div className="error">Error</div>}
-            <h1>{loginPageText.LOGIN}</h1>
+            <h2>{loginPageText.LOGIN}</h2>
             <div className="login-form-validate">
               <form onSubmit={signIn}>
                 <Input
@@ -72,7 +72,7 @@ const Login = () => {
                 />
                 <Input
                   value={password}
-                  type="text"
+                  type="password"
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter Password"
                   name="password"

@@ -34,7 +34,7 @@ function NavBar() {
         <div className='navbar-section'>
           <div className='navbar-logo'>
             <Link to='/dashboard'>
-            <h1>T Suresh</h1>
+            <h1>Cafe Coffee day</h1>
             </Link>
           </div>
           <div className='navbar-menu'>
