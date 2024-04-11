@@ -1,0 +1,55 @@
+@import '../../stylesheet/mixin.scss';
+@import '../../stylesheet/variable.scss';
+
+
+.report {
+    background-color: $light-gray;
+    height: 100vh;
+    overflow-y: overlay;
+    
+    &-container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 2.5rem 0 6rem;
+    }
+
+    &-main {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+    }
+
+
+    &-section {
+        width: 30%;
+        border-radius: 5px;
+        margin: 1rem 0;
+        display: flex;
+        flex-flow: column;
+        align-items: start;
+        cursor: pointer;
+        text-decoration: none;
+        color: #000;
+        background-color: #fff;
+    }
+
+    &-text {
+        margin-bottom: 1rem;
+        padding-left: 1.1rem;
+
+        p {
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .date {
+            font-size: 0.9rem;
+        }
+    }
+
+    img {
+        width: 75px;
+        height: 75px;
+        margin-top: 1rem;
+    }
+}

@@ -6,6 +6,7 @@ import { ProductsContext } from '../productContext';
 import { FaShoppingCart } from "react-icons/fa";
 import { FaSignOutAlt } from "react-icons/fa";
 import { FaFilter } from "react-icons/fa";
+import { Images } from '../../assets/images';
 
 function NavBar() {
   const { cartItems } = useContext(ProductsContext);
@@ -34,7 +35,10 @@ function NavBar() {
         <div className='navbar-section'>
           <div className='navbar-logo'>
             <Link to='/dashboard'>
-            <h1>T Suresh</h1>
+              <img src={Images.LogoOne} className='logo' />
+            </Link>
+            <Link to='/report'>
+            <h5>Report</h5>
             </Link>
           </div>
           <div className='navbar-menu'>

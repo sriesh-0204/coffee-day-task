@@ -6,6 +6,7 @@ import SignUp from "../pages/signup";
 import ProtectedRoute from "./protectedRoute";
 import Cart from "../pages/cart";
 import FilterPage from "../pages/filterPages";
+import PDFViewer from "../pages/report";
 
 const RouteList = () => {
   return (
@@ -28,6 +29,10 @@ const RouteList = () => {
            <Route
             path="/filter"
             element={<ProtectedRoute element={<FilterPage />} />}
+          />
+           <Route
+            path="/report"
+            element={<ProtectedRoute element={<PDFViewer />} />}
           />
           <Route path="/*" element={<Navigate to="/login" />} />
         </Routes>
