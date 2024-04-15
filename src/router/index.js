@@ -15,12 +15,12 @@ const RouteList = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route
-            path="/dashboard"
-            element={<ProtectedRoute element={<Dashboard />} />}
+            path="/signup"
+            element={<SignUp />}
           />
           <Route
-            path="/signup"
-            element={<ProtectedRoute element={<SignUp />} />}
+            path="/dashboard"
+            element={<ProtectedRoute element={<Dashboard />} />}
           />
           <Route
             path="/cart"

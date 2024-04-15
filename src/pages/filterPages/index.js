@@ -77,7 +77,7 @@ const App = () => {
                                     </thead>
                                     <tbody>
                                         {dateFilter &&
-                                            dateFilter.map(({ id, name, price, image, count, date }) => {
+                                            dateFilter.map(({ id, name, price, image, count=1, date }) => {
                                                 if (count !== 0) {
                                                     const total = count * price;
                                                     return (
@@ -89,7 +89,7 @@ const App = () => {
                                                                 {date}
                                                             </td>
                                                             <td>
-                                                                {total}
+                                                                {"total"}
                                                             </td>
                                                         </tr>
                                                     );
@@ -112,8 +112,9 @@ const App = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {console.log(products)}
                                         {products &&
-                                            products.map(({ id, name, price, image, count, date }) => {
+                                            products.map(({ id, name, price, image, count=1, date }) => {
                                                 if (count !== 0) {
                                                     const total = count * price;
                                                     return (

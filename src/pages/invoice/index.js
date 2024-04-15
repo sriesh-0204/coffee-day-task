@@ -1,54 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import './index.scss'
 import { format } from 'date-fns';
 import { ProductsContext } from "../../component/productContext";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
-import { usePDF } from 'react-to-pdf';
+import Loader from "../../html-components/loader";
 import generatePDF, { Resolution, Margin } from 'react-to-pdf';
-
-const options = {
-    filename: "Invoice-Bill.pdf",
-    method: "save",
-    // default is Resolution.MEDIUM = 3, which should be enough, higher values
-    // increases the image quality but also the size of the PDF, so be careful
-    // using values higher than 10 when having multiple pages generated, it
-    // might cause the page to crash or hang.
-    resolution: Resolution.EXTREME,
-    page: {
-      // margin is in MM, default is Margin.NONE = 0
-      margin: Margin.SMALL,
-      // default is 'A4'
-      format: "letter",
-      // default is 'portrait'
-      orientation: "landscape"
-    },
-    canvas: {
-      // default is 'image/jpeg' for better size performance
-      mimeType: "image/jpeg",
-      qualityRatio: 1
-    },
-    // Customize any value passed to the jsPDF instance and html2canvas
-    // function. You probably will not need this and things can break,
-    // so use with caution.
-    overrides: {
-      // see https://artskydj.github.io/jsPDF/docs/jsPDF.html for more options
-      pdf: {
-        compress: true
-      },
-      // see https://html2canvas.hertzen.com/configuration for more options
-      canvas: {
-        useCORS: true
-      }
-    }
-  };
-  
-  // you can also use a function to return the target element besides using React refs
-  const getTargetElement = () => document.getElementById("container");
-  
-  const downloadPdf = () => generatePDF(getTargetElement, options);
+import { Images } from "../../assets/images";
 
 const Invoice = (props) => {
+    const [loading, setLoading] = useState(false)
+
     const { closeIcon } = props;
     const {
         cartItems,
@@ -56,6 +18,60 @@ const Invoice = (props) => {
     } = useContext(ProductsContext);
     const currentDate = new Date();
     const formattedDate = format(currentDate, 'MMMM dd, yyyy');
+
+
+
+
+    const date = new Date()
+    const filename = `${date.getDate()}_${date.getMonth() + 1}_${date.getFullYear()}_${date.getHours()}_${date.getMinutes()}_${date.getSeconds()}${date.getHours() < 12 ? 'am' : 'pm'}`
+
+    const options = {
+        filename: `ccd_invoice_${filename}_${Math.floor(Math.random() * 1000)}.pdf`,
+        method: "save",
+        // default is Resolution.MEDIUM = 3, which should be enough, higher values
+        // increases the image quality but also the size of the PDF, so be careful
+        // using values higher than 10 when having multiple pages generated, it
+        // might cause the page to crash or hang.
+        resolution: Resolution.EXTREME,
+        page: {
+            // margin is in MM, default is Margin.NONE = 0
+            margin: Margin.LARGE,
+            // default is 'A4'
+            // format: "letter",
+            // default is 'portrait'
+            // orientation: "portrait"
+        },
+        canvas: {
+            // default is 'image/jpeg' for better size performance
+            mimeType: "image/jpeg",
+            qualityRatio: 1
+        },
+        // Customize any value passed to the jsPDF instance and html2canvas
+        // function. You probably will not need this and things can break,
+        // so use with caution.
+        overrides: {
+            // see https://artskydj.github.io/jsPDF/docs/jsPDF.html for more options
+            pdf: {
+                // compress: true
+            },
+            // see https://html2canvas.hertzen.com/configuration for more options
+            canvas: {
+                useCORS: true
+            }
+        }
+    };
+
+    // you can also use a function to return the target element besides using React refs
+    const getTargetElement = () => document.getElementById("container");
+
+    const downloadPdf = () => {
+        setLoading(true)
+        generatePDF(getTargetElement, options)
+        setTimeout(() => {
+            setLoading(false)
+            closeIcon()
+        }, 3000)
+    };
 
     const calculateCartValue = (products) => {
         let totalCartValue;
@@ -117,7 +133,7 @@ const Invoice = (props) => {
                             </thead>
                             <tbody>
                                 {cartItems &&
-                                    cartItems.map(({ id, name, price, image, count }) => {
+                                    cartItems.map(({ id, name, price, image, count = 1 }) => {
                                         if (count !== 0) {
                                             const total = count * price;
                                             return (
@@ -173,12 +189,14 @@ const Invoice = (props) => {
                         </div>
                     </div>
                 </div>
+                <img style={{ width: 120, height: 96 }} src={Images.LogoUserImage} />
+                <span style={{fontSize:10}}>Invoice generated on: {filename}</span>
             </div>
             <div className="invoice-download-btn">
-                <button onClick={downloadPdf}>
-                    Downlaod Invoice
-                </button>
-            </div>
+                    <button onClick={downloadPdf}>
+                        {loading ? "Generating..." : "Download Invoice"}
+                    </button>
+                </div>
         </div>
     )
 }

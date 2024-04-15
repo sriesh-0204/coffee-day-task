@@ -39,7 +39,7 @@ const Cart = () => {
             </thead>
             <tbody>
               {cartItems &&
-                cartItems.map(({ id, name, price, image, count }) => {
+                cartItems.map(({ id, name, price, image, count=1 }) => {
                   if (count !== 0) {
                     const total = count * price;
                     return (
@@ -65,7 +65,7 @@ const Cart = () => {
           </table>
           <div>
             <button onClick={openInvoice} className="cart-invoice-btn">
-              Invoice Bill
+              Generate Invoice
             </button>
           </div>
           {

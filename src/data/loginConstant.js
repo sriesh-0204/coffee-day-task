@@ -1,4 +1,4 @@
 export const loginPageText ={
     LOGIN : 'Login',
-    SIGNUP: 'SignUp'
+    SIGNUP: 'Create Account'
 }
