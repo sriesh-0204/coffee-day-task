@@ -13,13 +13,27 @@
         padding: 2.5rem 0 6rem;
     }
 
+    &-submit-button {
+        background-color: #00388b;
+        height: 2rem;
+        margin-left: 1rem;
+        color: #fff;
+        font-size: 13px;
+        border: unset;
+    }
+
     &-main {
         display: flex;
         flex-flow: wrap;
         justify-content: space-between;
     }
 
-
+    &-date-filter{
+        display: flex;
+    }
+    &-start-date{
+        margin-right: 1rem;
+    }
     &-section {
         width: 30%;
         border-radius: 5px;
