@@ -47,9 +47,6 @@ const PDFViewer = () => {
         <div className="report-container">
           <form onSubmit={handleSubmit}>
             <div>
-              <p>
-                Select this date to filter check(Year-month-date): 2024/02/10, 2024/01/20, 2024/08/20, 2024/06/20, 2024/11/01
-              </p>
               <div className="form-group">
                 <p>
                   Date Filter:

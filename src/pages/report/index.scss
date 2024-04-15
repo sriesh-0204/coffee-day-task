@@ -25,7 +25,6 @@
     &-main {
         display: flex;
         flex-flow: wrap;
-        justify-content: space-between;
     }
 
     &-date-filter{
@@ -45,6 +44,7 @@
         text-decoration: none;
         color: #000;
         background-color: #fff;
+        margin-right: 2rem;
 
         @media only screen and (max-width: 768px) {
             width: 48%;
