@@ -47,9 +47,9 @@ const App = () => {
                             Select this date to filter check(Year-month-date): 2024/02/10, 2024/01/20, 2024/08/20, 2024/06/20, 2024/11/01
                         </p>
                         <div className="form-group">
-                            <p>
+                            <div>
                                 Date Filter:
-                            </p>
+                            </div>
                             <DatePicker
                                 selected={startDate}
                                 onChange={handleChange}

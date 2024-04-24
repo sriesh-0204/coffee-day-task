@@ -6,11 +6,34 @@
     background-color: $light-gray;
     height: 100vh;
     overflow-y: overlay;
-    
+
     &-container {
         width: 80%;
         margin: 0 auto;
         padding: 2.5rem 0 6rem;
+    }
+
+    .form-group{
+        display: flex;
+        align-items: center;
+
+        &-date{
+            margin-right: 1rem;
+        }
+    }
+
+    &-table {
+        border: 1px solid #ededed;
+        width: 100%;
+        margin: 2rem 0;
+
+        th,
+        td {
+            border-bottom: 1px solid $table-border-color;
+            border-right: 1px solid $table-border-color;
+            padding: 10px;
+            text-align: center;
+        }
     }
 
     &-submit-button {
@@ -27,12 +50,14 @@
         flex-flow: wrap;
     }
 
-    &-date-filter{
+    &-date-filter {
         display: flex;
     }
-    &-start-date{
+
+    &-start-date {
         margin-right: 1rem;
     }
+
     &-section {
         width: 30%;
         border-radius: 5px;

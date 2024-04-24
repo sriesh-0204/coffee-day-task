@@ -4,14 +4,14 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { format } from 'date-fns';
-import { reportConstant } from '../../data/reportconstant';
+import { data } from '../../data/reportconstant';
 import './index.scss'
 import { useEffect } from 'react';
 
 const PDFViewer = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [filteredData, setFilteredData] = useState(reportConstant);
+  const [filteredData, setFilteredData] = useState(data);
 
   const handleStartDateChange = (date) => {
     setStartDate(date);
@@ -22,7 +22,7 @@ const PDFViewer = () => {
   };
 
   const filterData = (start, end) => {
-    const filtered = reportConstant.filter(item => {
+    const filtered = data.filter(item => {
       const itemDate = new Date(item.date);
       return (!start || itemDate >= new Date(start)) && (!end || itemDate <= new Date(end));
     });
@@ -35,10 +35,14 @@ const PDFViewer = () => {
   };
 
   const resetValue = () => {
-    setFilteredData(reportConstant);
+    setFilteredData(data);
     setStartDate(null);
     setEndDate(null);
   };
+
+  useEffect(()=>{
+
+  },[filteredData])
 
   return (
     <div>
@@ -48,9 +52,9 @@ const PDFViewer = () => {
           <form onSubmit={handleSubmit}>
             <div>
               <div className="form-group">
-                <p>
+                <div className='form-group-date'>
                   Date Filter:
-                </p>
+                </div>
                 <div className='report-date-filter'>
                   <div className='report-start-date'>
                     <label>Start Date:</label>
@@ -71,27 +75,46 @@ const PDFViewer = () => {
             </div>
           </form>
           <div className='report-main'>
-            {
+            <table className="report-table">
+            <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Invoice No</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {
               filteredData && filteredData
                 .sort((a, b) => new Date(a.date) - new Date(b.date)) // Sort data based on date
                 .map((item) => (
-                  <a href={item.contenturl} target='_blank' rel="noopener noreferrer" className='report-section' key={item.id}>
-                    <div className='report-image'>
-                      <img src={item.image} alt={item.name} />
-                    </div>
-                    <div className='report-text'>
-                      <div>
-                        <p>
-                          {item.name}
-                        </p>
-                      </div>
-                      <div className='date'>
-                        {item.date}
-                      </div>
-                    </div>
-                  </a>
+                  <tr className='report-tr' key={item.id}>
+                    <td className='report-td'>
+                      {item.date}
+                    </td>
+                    <td className='report-td'>
+                      {item.invoice_no}
+                    </td>
+                    <td className='report-td'>
+                      {item.product_name}
+                    </td>
+                    <td className='report-td'>
+                      {item.price}
+                    </td>
+                    <td className='report-td'>
+                      {item.quantity}
+                    </td>
+                    <td className='report-td'>
+                      {item.total}
+                    </td>
+                  </tr>
                 ))
             }
+                </tbody>
+            </table>
           </div>
         </div>
       </div>
