@@ -13,12 +13,16 @@
         padding: 2.5rem 0 6rem;
     }
 
-    .form-group{
+    .form-group {
         display: flex;
         align-items: center;
 
-        &-date{
+        &-date {
             margin-right: 1rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            flex-wrap: wrap;
         }
     }
 
@@ -52,6 +56,10 @@
 
     &-date-filter {
         display: flex;
+
+        @media only screen and (max-width: 768px) {
+            flex-wrap: wrap;
+        }
     }
 
     &-start-date {
